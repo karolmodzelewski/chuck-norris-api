@@ -1,0 +1,83 @@
+@import '../../scss/mixins.scss', '../../scss/variables.scss';
+
+main {
+    @include display-flex(center, initial, initial, initial);
+    width: 100vw;
+    height: 100vh;
+
+    .wrapper {
+        width: 100%;
+        max-width: 1352px;
+        height: inherit;
+
+        .flex-container {
+            @include display-flex(initial, flex-end, initial, initial);
+            width: inherit;
+            height: inherit;
+
+            .container {
+                @include display-flex(center, initial, initial, initial);
+                flex-wrap: wrap;
+                width: 100%;
+                margin: 0 40px;
+
+                img {
+                    width: 55%;
+                }
+
+                .puns-container {
+                    @include display-flex(space-between, initial, flex-start, column);
+                    max-width: 425px;
+                    min-height: 250px;
+                    padding: 40px;
+                    margin-top: 50px;
+                    border: 5px solid $color-gray;
+
+                    &, button {
+                        border-radius: 6px;
+                    }
+
+                    h1 {
+                        font-size: 30px;
+                        font-weight: 700;
+                        white-space: pre;
+                        margin-bottom: 10px;
+                    }
+
+                    p {
+                        margin: 15px 0;
+                        letter-spacing: 0.3px;
+                        text-decoration: underline;
+
+                        &.joke {
+                            font-style: italic;
+                            text-decoration: none;
+                        }
+                    }
+
+                    button {
+                        width: 170px;
+                        height: 40px;
+                        margin-top: 10px;
+                        border: 0;
+                        outline: none;
+                        background: $color-red;
+                        color: $color-white;
+                        text-transform: uppercase;
+                        font-weight: bold;
+                        transition: 0.2s ease-in-out;
+                        cursor: pointer;
+
+                        &:hover {
+                            background: $color-lightred;
+                        }
+
+                        &:active {
+                            background: $color-darkred;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
