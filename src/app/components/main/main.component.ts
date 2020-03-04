@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
+import { IPun } from './../../interfaces/ipun';
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -15,7 +17,7 @@ export class MainComponent implements OnInit {
     }
 
     getRandomJoke() {
-        this.http.get<any>("https://api.chucknorris.io/jokes/random").subscribe(data => {
+        this.http.get<IPun>("https://api.chucknorris.io/jokes/random").subscribe(data => {
             this.randomJoke = data.value;
             return this.randomJoke;
         });
