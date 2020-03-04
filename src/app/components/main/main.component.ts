@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { IPun } from './../../interfaces/ipun';
 
@@ -8,19 +8,18 @@ import { IPun } from './../../interfaces/ipun';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit {
+export class MainComponent {
     randomJoke: string;
+    jokeWasTold: boolean;
 
     constructor(private http: HttpClient) { }
-
-    ngOnInit() {
-    }
 
     getRandomJoke() {
         this.http.get<IPun>("https://api.chucknorris.io/jokes/random").subscribe(data => {
             this.randomJoke = data.value;
             return this.randomJoke;
         });
-    }
 
+        this.jokeWasTold = true;
+    }
 }
