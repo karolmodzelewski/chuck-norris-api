@@ -1,2 +1,16 @@
-<button (click)="getRandomJoke()">CLICK</button>
-<p>{{ randomJoke }}</p>
+<main>
+    <div class="wrapper">
+        <div class="flex-container">
+            <div class="container">
+                <img src="assets/svg/chuck.svg" alt="Chuck Norris cannot be missing. You can.">
+                <section class="puns-container">
+                    <h1><font color="chucknorris">Do you think that's funny?</font></h1>
+                    <p *ngIf="!jokeWasTold">If you're not sure, try it by yourself 8)</p>
+                    <p *ngIf="jokeWasTold" class="joke">{{ randomJoke }}</p>
+                    <button *ngIf="!jokeWasTold" (click)="getRandomJoke()">Check this</button>
+                    <button *ngIf="jokeWasTold" (click)="getRandomJoke()">Try again</button>
+                </section>
+            </div>
+        </div>
+    </div>
+</main>
